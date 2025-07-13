@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Blog - Matify AI" />
+    <title>Blog | LaunchKit AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        .hero {
+            background: #0f0f1a;
+            color: #fff;
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .blog-section {
+            padding: 3rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .search-filter {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        
+        .search-filter input,
+        .search-filter select {
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            border: 1px solid #333;
+            margin-bottom: 1rem;
+        }
+        
+        .blog-content {
+            flex: 3;
+        }
+        
+        .blog-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+        
+        .blog-card {
+            background: #1a1a2f;
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 300px;
+            color: #ccc;
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .blog-card img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        
+        .blog-card h4 {
+            color: #5bb1ff;
+            margin-bottom: 0.5rem;
+        }
+        
+        .blog-card p {
+            font-size: 0.95rem;
+        }
+        
+        .blog-card a {
+            color: #007bff;
+            text-decoration: underline;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+        
+        .load-more {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .load-more button {
+            background: #007bff;
+            color: #fff;
+            padding: 0.7rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .sidebar {
+            flex: 1;
+            background: #12121e;
+            padding: 2rem;
+            border-radius: 10px;
+            color: #ccc;
+        }
+        
+        .sidebar h3 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: #5bb1ff;
+        }
+        
+        .sidebar ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .sidebar li {
+            margin-bottom: 0.7rem;
+        }
+        
+        .sidebar a {
+            color: #ccc;
+            text-decoration: none;
+        }
+        
+        .sidebar a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .blog-section {
+                flex-direction: column;
+            }
+            .search-filter {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .search-filter input,
+            .search-filter select {
+                width: 100%;
+            }
+            .blog-card {
+                width: 100%;
+                max-width: 100%;
+            }
+            .sidebar {
+                width: 100%;
+            }
+            header nav {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            .hero h2 {
+                font-size: 2rem;
+            }
+            footer {
+                padding: 2rem 1rem;
+            }
+            .footer-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header style="background: #001f3f; padding: 1rem 2rem; color: white; display: flex; justify-content: space-between; align-items: center;">
+        <h1 style="margin: 0; font-size: 1.5rem;">LaunchKit AI</h1>
+        <nav style="display: flex; gap: 1.5rem;">
+            <a href="index.html" style="color: #fff; text-decoration: none;">Home</a>
+            <a href="features.html" style="color: #fff; text-decoration: none;">Features</a>
+            <a href="pricing.html" style="color: #fff; text-decoration: none;">Pricing</a>
+            <a href="about.html" style="color: #fff; text-decoration: none;">About</a>
+            <a href="resources.html" style="color: #fff; text-decoration: none;">Resources</a>
+            <a href="index.html#contact" style="color: #fff; text-decoration: none;">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Insights & Updates</h2>
+        <p>Explore tips, case studies, and updates on using AI to grow your business smarter.</p>
+    </section>
+
+    <section class="blog-section">
+        <div class="blog-content">
+            <div class="search-filter">
+                <input type="text" id="blogSearch" placeholder="Search blog posts..." onkeyup="filterBlogs()" />
+                <select id="categoryFilter" onchange="filterBlogs()">
+          <option value="all">All Categories</option>
+          <option value="ai">AI Tips</option>
+          <option value="branding">Branding</option>
+          <option value="marketing">Marketing</option>
+        </select>
+            </div>
+
+            <div class="blog-grid" id="blogGrid">
+                <div class="blog-card" data-category="ai">
+                    <img src="images/ai-tools.jpg" alt="AI Tools Thumbnail" />
+                    <h4>5 AI Tools Every Business Should Know</h4>
+                    <p>Boost your productivity with these powerful free tools every entrepreneur can use today.</p>
+                    <a href="blog-post.html">Read More</a>
+                </div>
+                <div class="blog-card" data-category="branding">
+                    <img src="images/branding.jpg" alt="Branding Thumbnail" />
+                    <h4>Building a Brand in 72 Hours</h4>
+                    <p>How LaunchKit AI helped 10 solopreneurs create strong identities in just 3 days.</p>
+                    <a href="blog-post.html">Read More</a>
+                </div>
+                <div class="blog-card" data-category="marketing">
+                    <img src="images/social-media.jpg" alt="Social Media Growth Thumbnail" />
+                    <h4>Social Media Growth for Local Businesses</h4>
+                    <p>Learn how to attract leads with authentic, AI-powered content strategies.</p>
+                    <a href="blog-post.html">Read More</a>
+                </div>
+                <div class="blog-card" data-category="ai">
+                    <img src="images/automation.jpg" alt="AI Automation Thumbnail" />
+                    <h4>How to Automate Your Business Using AI Tools</h4>
+                    <p>Discover easy ways to streamline your workflow with smart AI automations for everyday tasks.</p>
+                    <a href="blog-ai-automation.html">Read More</a>
+                </div>
+            </div>
+
+            <div class="load-more">
+                <button onclick="loadMorePosts()">Load More</button>
+            </div>
+        </div>
+
+        <aside class="sidebar">
+            <h3>Recent Posts</h3>
+            <ul>
+                <li><a href="blog-ai-automation.html">How to Automate Your Business Using AI Tools</a></li>
+                <li><a href="blog-post.html">Building a Brand in 72 Hours</a></li>
+                <li><a href="blog-post.html">5 AI Tools Every Business Should Know</a></li>
+            </ul>
+        </aside>
+    </section>
+
+    <footer style="background-color: #0a0a12; padding: 3rem 2rem; color: #ccc; text-align: center;">
+        <div class="footer-links" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 1rem;">
+            <a href="index.html#faq" style="color: #ccc; text-decoration: none;">FAQ</a>
+            <a href="features.html" style="color: #ccc; text-decoration: none;">Features</a>
+            <a href="pricing.html" style="color: #ccc; text-decoration: none;">Pricing</a>
+            <a href="about.html" style="color: #ccc; text-decoration: none;">About</a>
+            <a href="resources.html" style="color: #ccc; text-decoration: none;">Resources</a>
+            <a href="index.html#contact" style="color: #ccc; text-decoration: none;">Contact</a>
+        </div>
+        <div class="social-icons" style="display: flex; justify-content: center; gap: 1.2rem;">
+            <a href="#" style="color: #ccc;"><i class="fab fa-twitter"></i></a>
+            <a href="#" style="color: #ccc;"><i class="fab fa-instagram"></i></a>
+            <a href="#" style="color: #ccc;"><i class="fab fa-facebook"></i></a>
+            <a href="#" style="color: #ccc;"><i class="fab fa-tiktok"></i></a>
+        </div>
+        <p style="margin-top: 1.5rem;">&copy; 2025 Matify AI. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function filterBlogs() {
+            const searchInput = document.getElementById('blogSearch').value.toLowerCase();
+            const category = document.getElementById('categoryFilter').value;
+            const cards = document.querySelectorAll('.blog-card');
+
+            cards.forEach(card => {
+                const title = card.querySelector('h4').textContent.toLowerCase();
+                const cat = card.getAttribute('data-category');
+
+                const matchesSearch = title.includes(searchInput);
+                const matchesCategory = category === 'all' || category === cat;
+
+                card.style.display = matchesSearch && matchesCategory ? 'block' : 'none';
+            });
+        }
+
+        function loadMorePosts() {
+            alert("This will load more blog posts dynamically in a future update.");
+        }
+    </script>
+    <script src="main.js"></script>
+</body>
+
+</html>

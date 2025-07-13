@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About - Matify AI LaunchKit">
+    <title>About | LaunchKit AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .hero-content {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease-out 0.3s forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .about-section {
+            padding: 3rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+            color: #fff;
+        }
+        
+        .about-section h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #5bb1ff;
+        }
+        
+        .about-section p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #ccc;
+        }
+        
+        .highlight-box {
+            background: #1a1a2f;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            margin-top: 2rem;
+            color: #fff;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease-out forwards;
+        }
+        
+        .team-section,
+        .timeline-section,
+        .testimonials-section {
+            padding: 3rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+            color: #ccc;
+        }
+        
+        .team-section h2,
+        .timeline-section h2,
+        .testimonials-section h2 {
+            color: #5bb1ff;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .team-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+        
+        .team-member {
+            text-align: center;
+            max-width: 200px;
+        }
+        
+        .timeline-item {
+            margin-bottom: 2rem;
+        }
+        
+        .testimonial {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            background: #151522;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <!-- Hero Section -->
+    <section style="background: #0f0f1a; color: #fff; text-align: center; padding: 4rem 2rem;">
+        <div class="hero-content">
+            <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">About Matify AI & LaunchKit</h2>
+            <p style="font-size: 1.1rem; color: #ccc; max-width: 600px; margin: 0 auto 2rem;">
+                Learn how we're helping Gen Z solopreneurs and small businesses launch smarter, faster, and better with AI.
+            </p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <h2>Our Mission</h2>
+        <p>
+            LaunchKit AI is built to empower creators, students, and emerging entrepreneurs to kickstart their ventures without the usual barriers. By leveraging artificial intelligence and automation, we make launching a brand, building a website, and setting up
+            social/WhatsApp systems as simple as clicking a button.
+        </p>
+
+        <div class="highlight-box" style="animation-delay: 0.3s;">
+            <h3>Why Matify AI?</h3>
+            <p>
+                Matify AI was born out of a need to make tech, branding, and automation tools accessible for everyone—especially the underdogs. We’re building a future where you don’t need a degree, funding, or a tech team to bring your ideas to life.
+            </p>
+        </div>
+
+        <div class="highlight-box" style="animation-delay: 0.6s;">
+            <h3>Who It’s For</h3>
+            <p>
+                Whether you're a Gen Z creative, a local business owner, or just someone with a dream and a drive, LaunchKit AI gives you the essentials—done-for-you brand kits, websites, cheat sheets, and automations—to help you win.
+            </p>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <h2>Meet the Founder</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <img src="founder.jpg" alt="Founder" style="width: 100%; border-radius: 10px;">
+                <h3 style="margin-top: 1rem; color: #fff;">Matthew Folawe</h3>
+                <p style="color: #bbb;">Founder & Visionary</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <h2>What Our Users Say</h2>
+        <div class="testimonial">“I got a complete brand and website in 2 days. LaunchKit AI is a game changer!” – Ade, Lagos</div>
+        <div class="testimonial">“From logo to WhatsApp automation, everything was seamless.” – Esther, Abuja</div>
+        <div class="testimonial">“Perfect for students like me who want to build real businesses fast.” – Tobi, OAU</div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section">
+        <h2>Our Journey</h2>
+        <div class="timeline-item">
+            <h4 style="color: #5bb1ff;">2024</h4>
+            <p>LaunchKit AI was conceptualized to help young entrepreneurs build smarter businesses using AI.</p>
+        </div>
+        <div class="timeline-item">
+            <h4 style="color: #5bb1ff;">2025</h4>
+            <p>We built our first 100 kits and launched Matify AI to support growth and automation for local brands.</p>
+        </div>
+    </section>
+    <script src="main.js"></script>
+</body>
+
+</html>

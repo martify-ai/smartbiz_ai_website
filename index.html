@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SmartBiz AI | AI-Powered Business Growth for Modern Entrepreneurs">
+    <meta property="og:title" content="SmartBiz AI">
+    <meta property="og:description" content="AI-powered branding and growth tools for small businesses">
+    <meta property="og:image" content="logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>SmartBiz AI | Smarter Growth Starts Here</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"> -->
+
+</head>
+
+<body>
+
+    <style>
+        .lead-popup {
+            background: #1c1c27;
+            color: white;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 194, 212, 0.4);
+            z-index: 10000;
+            display: none;
+            animation: slideUp 0.6s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 6rem 2rem 4rem;
+            background: rgba(0, 15, 30, 0.5);
+            backdrop-filter: blur(14px);
+            border-radius: 0 0 40px 40px;
+            box-shadow: inset 0 0 60px rgba(91, 177, 255, 0.05);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before,
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            filter: blur(60px);
+            z-index: 0;
+        }
+        
+        .hero::before {
+            top: -50px;
+            left: -50px;
+            background: rgba(91, 177, 255, 0.1);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .hero::after {
+            bottom: -50px;
+            right: -50px;
+            background: rgba(255, 255, 255, 0.06);
+            animation: float 8s ease-in-out infinite reverse;
+        }
+        
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(20px);
+            }
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            line-height: 1.3;
+            max-width: 800px;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+            opacity: 0.85;
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .hero a.cta {
+            padding: 0.9rem 2rem;
+            background: var(--accent);
+            color: #000;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            animation: fadeInUp 1.4s ease forwards;
+        }
+        
+        .glass-card {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            animation: fadeInUp 1.8s ease forwards;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 40px rgba(91, 177, 255, 0.2);
+        }
+        
+        .rocket-btn {
+            width: 60px;
+            height: auto;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.9;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        .hero-illustration {
+            margin-top: 3rem;
+            max-width: 500px;
+            animation: fadeInUp 1.6s ease forwards;
+        }
+        
+        .hero-illustration img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
+        
+        .floating-tools {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .floating-tools img {
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            opacity: 0.2;
+            animation: orbit 10s ease-in-out infinite;
+        }
+        
+        .floating-tools img:nth-child(1) {
+            top: 10%;
+            left: 20%;
+            animation-delay: 0s;
+        }
+        
+        .floating-tools img:nth-child(2) {
+            top: 30%;
+            left: 70%;
+            animation-delay: 2s;
+        }
+        
+        .floating-tools img:nth-child(3) {
+            top: 60%;
+            left: 10%;
+            animation-delay: 4s;
+        }
+        
+        .floating-tools img:nth-child(4) {
+            top: 80%;
+            left: 80%;
+            animation-delay: 6s;
+        }
+        
+        @keyframes orbit {
+            0% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-10px) rotate(180deg);
+            }
+            100% {
+                transform: translateY(0px) rotate(360deg);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .lead-popup h3 {
+            margin-top: 0;
+        }
+        
+        .lead-popup input[type="email"] {
+            width: 100%;
+            padding: 0.5rem;
+            margin: 0.5rem 0 1rem;
+            border-radius: 5px;
+            border: none;
+        }
+        
+        .lead-popup button {
+            width: 100%;
+            padding: 0.7rem;
+            background: var(--primary);
+            border: none;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        #successMessage {
+            display: none;
+            color: limegreen;
+            text-align: center;
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.2rem;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+
+
+    <main>
+        <!-- Content sections -->
+        <!-- Hero Section -->
+        <section class="hero" data-aos="fade-up">
+            <div class="floating-tools">
+                <img src="https://img.icons8.com/fluency/48/code.png" alt="Tool 1">
+                <img src="https://img.icons8.com/color/48/figma.png" alt="Tool 2">
+                <img src="https://img.icons8.com/fluency/48/chatgpt.png" alt="Tool 3">
+                <img src="https://img.icons8.com/color/48/canva.png" alt="Tool 4">
+            </div>
+            <h1>Launch Your Business in 48 Hours with LaunchKit AI</h1>
+            <p>Everything you need: logo, website, WhatsApp automation & AI tools — fast, simple, and affordable.</p>
+            <a href="#pricing" class="cta">Explore Plans</a>
+            <div class="glass-card">
+                <img class="rocket-btn" src="assets/img/rocket.png" alt="Rocket Icon">
+            </div>
+            <!-- <div class="hero-illustration">
+    <img src="https://illustrations.popsy.co/gray/rocket.svg" alt="AI Startup Illustration">
+  </div> -->
+        </section>
+
+        <section id="services" style="padding: 4rem 2rem; background: var(--charcoal);">
+            <h2 style="text-align: center; font-size: 1.8rem; margin-bottom: 2rem;">What We Offer</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center;">
+                <div style="flex: 1; min-width: 250px; max-width: 300px; background: var(--dark); padding: 1.5rem; border-radius: 12px;">
+                    <h3>Launch Kit</h3>
+                    <p>Logo, branding kit, business plan, and social media setup – all ready in 72 hours.</p>
+                </div>
+                <div style="flex: 1; min-width: 250px; max-width: 300px; background: var(--dark); padding: 1.5rem; border-radius: 12px;">
+                    <h3>Growth Subscription</h3>
+                    <p>Get monthly AI-powered content plans, templates, and automation tools to scale faster.</p>
+                </div>
+                <div style="flex: 1; min-width: 250px; max-width: 300px; background: var(--dark); padding: 1.5rem; border-radius: 12px;">
+                    <h3>Done-For-You Ads</h3>
+                    <p>High-converting ad creatives + setup for Meta, Google, and TikTok – fully managed.</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- AI AUDIT TOOL SECTION -->
+        <section id="ai-audit" class="quiz-container">
+            <h2 style="text-align: center; margin-bottom: 2rem;">🔍 Free AI Audit: How Smart Is Your Business?</h2>
+            <div id="progress-bar"></div>
+            <form id="auditQuiz">
+                <div class="quiz-question">
+                    <h3>1. Do you have a clear brand identity?</h3>
+                    <label><input type="radio" name="q1" value="2" required> Yes</label>
+                    <label><input type="radio" name="q1" value="1"> Somewhat</label>
+                    <label><input type="radio" name="q1" value="0"> No</label>
+                </div>
+
+                <div class="quiz-question">
+                    <h3>2. Do you have a working business plan?</h3>
+                    <label><input type="radio" name="q2" value="2" required> Yes</label>
+                    <label><input type="radio" name="q2" value="1"> In progress</label>
+                    <label><input type="radio" name="q2" value="0"> Not yet</label>
+                </div>
+
+                <div class="quiz-question">
+                    <h3>3. How do you market your business?</h3>
+                    <label><input type="radio" name="q3" value="2" required> Social + Ads + SEO</label>
+                    <label><input type="radio" name="q3" value="1"> Just social media</label>
+                    <label><input type="radio" name="q3" value="0"> I don’t market much</label>
+                </div>
+
+                <div class="quiz-question">
+                    <h3>4. Do you use any automation or AI tools?</h3>
+                    <label><input type="radio" name="q4" value="2" required> Yes</label>
+                    <label><input type="radio" name="q4" value="1"> I've tried some</label>
+                    <label><input type="radio" name="q4" value="0"> Not at all</label>
+                </div>
+
+                <button type="submit" style="padding: 0.75rem 2rem; background: var(--primary); color: white; border: none; border-radius: 6px; cursor: pointer; display: block; margin: 0 auto;">See My Score</button>
+            </form>
+            <div id="quiz-result"></div>
+        </section>
+
+
+
+        <section id="pricing" style="padding: 4rem 2rem; text-align: center;">
+            <h2 style="font-size: 1.8rem; margin-bottom: 1rem;">Pricing</h2>
+            <label>
+        <input type="checkbox" id="togglePricing"> Toggle Annual Billing
+      </label>
+            <div id="monthly" style="margin-top: 2rem;">
+                <h3>Launch Kit – $197</h3>
+                <p>One-time package with everything you need to start.</p>
+                <h3>Growth Subscription – $50/month</h3>
+                <p>Ongoing content and automation support.</p>
+            </div>
+            <div id="annual" style="display: none; margin-top: 2rem;">
+                <h3>Launch Kit – $197 (One-time)</h3>
+                <h3>Growth Plan – $500/year</h3>
+                <p>Save $100 with annual billing.</p>
+            </div>
+        </section>
+
+        <section id="contact" style="padding: 4rem 2rem; background: var(--charcoal); text-align: center;">
+            <h2 style="font-size: 1.8rem; margin-bottom: 1rem;">Get In Touch</h2>
+            <p>Want a free audit or have a question? Let's talk.</p>
+            <form id="auditForm" style="max-width: 500px; margin: 2rem auto;">
+                <input type="text" placeholder="Your Business Name" required style="width: 100%; padding: 1rem; margin-bottom: 1rem;">
+                <input type="email" placeholder="Your Email" required style="width: 100%; padding: 1rem; margin-bottom: 1rem;">
+                <button type="submit" style="padding: 1rem 2rem; background: var(--primary); border: none; color: white; font-weight: bold; border-radius: 8px;">Get Free Audit</button>
+            </form>
+            <div id="auditResult" style="margin-top: 1rem; font-weight: bold;"></div>
+        </section>
+
+
+
+        <!-- FEATURES SECTION -->
+        <section class="features-section" id="features">
+            <div class="container">
+                <h2 data-aos="fade-up">Everything You Get with LaunchKit AI</h2>
+                <p class="subtext" data-aos="fade-up" data-aos-delay="100">We don’t just give you tools—we give you a business.</p>
+                <div class="features-grid">
+                    <div class="feature-box" data-aos="zoom-in">
+                        <i class="fas fa-paint-brush"></i>
+                        <h3>Custom Logo</h3>
+                        <p>Tailored to your brand with Canva AI + editable files.</p>
+                    </div>
+                    <div class="feature-box" data-aos="zoom-in" data-aos-delay="100">
+                        <i class="fas fa-scroll"></i>
+                        <h3>Business Plan</h3>
+                        <p>PDF strategy with SEO keywords & action steps.</p>
+                    </div>
+                    <div class="feature-box" data-aos="zoom-in" data-aos-delay="200">
+                        <i class="fas fa-bullhorn"></i>
+                        <h3>Social Media Kit</h3>
+                        <p>Posts, bios & templates for TikTok, X, Instagram.</p>
+                    </div>
+                    <div class="feature-box" data-aos="zoom-in" data-aos-delay="300">
+                        <i class="fas fa-globe"></i>
+                        <h3>Website</h3>
+                        <p>Canva mockup or full site on Wix/Squarespace.</p>
+                    </div>
+                    <div class="feature-box" data-aos="zoom-in" data-aos-delay="400">
+                        <i class="fas fa-robot"></i>
+                        <h3>WhatsApp Automation</h3>
+                        <p>Auto replies, welcome messages, basic chatbot flow.</p>
+                    </div>
+                    <div class="feature-box" data-aos="zoom-in" data-aos-delay="500">
+                        <i class="fas fa-magic"></i>
+                        <h3>AI Cheat Sheet</h3>
+                        <p>Get our curated tools for content, SEO, design, & growth.</p>
+                    </div>
+                </div>
+                <div class="cta-after-features" data-aos="fade-up" data-aos-delay="600">
+                    <a href="#pricing">See Plans & Pricing</a>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- PLANS SECTION -->
+        <!-- Pricing Section -->
+        <section class="plans-section" id="pricing">
+            <div class="container">
+                <h2 data-aos="fade-up">Choose Your Launch Plan</h2>
+                <p class="subtext" data-aos="fade-up" data-aos-delay="100">Select a package that fits your needs and budget.</p>
+                <div class="plans-grid">
+                    <div class="plan-box" data-aos="flip-left">
+                        <h3>Lite - $67</h3>
+                        <ul>
+                            <li>1 Logo (1 revision)</li>
+                            <li>2 Taglines</li>
+                            <li>2-page Business Plan</li>
+                            <li>1 Social Platform (2 posts)</li>
+                            <li>1-page Canva Website Mockup</li>
+                            <li>AI Cheat Sheet (3 tools)</li>
+                        </ul>
+                        <button>Get Started</button>
+                    </div>
+                    <div class="plan-box" data-aos="flip-left" data-aos-delay="100">
+                        <h3>Starter - $127</h3>
+                        <ul>
+                            <li>1 Logo (2 revisions)</li>
+                            <li>3 Taglines</li>
+                            <li>3-page Business Plan</li>
+                            <li>1 Social Platform (3 posts)</li>
+                            <li>Website Mockup + Basic WhatsApp Automation</li>
+                            <li>AI Cheat Sheet (5 tools)</li>
+                        </ul>
+                        <button>Get Started</button>
+                    </div>
+                    <div class="plan-box popular" data-aos="flip-left" data-aos-delay="200">
+                        <div class="badge">Most Popular</div>
+                        <h3>Pro - $197</h3>
+                        <ul>
+                            <li>2 Logos (3 revisions)</li>
+                            <li>3 Taglines</li>
+                            <li>5-page Business Plan + SEO</li>
+                            <li>3 Social Platforms (5 posts)</li>
+                            <li>1-page Website + Advanced WhatsApp Automation</li>
+                            <li>AI Cheat Sheet (Tailored)</li>
+                        </ul>
+                        <button>Get Started</button>
+                    </div>
+                    <div class="plan-box" data-aos="flip-left" data-aos-delay="300">
+                        <h3>Premium - $267</h3>
+                        <ul>
+                            <li>3 Logos (Unlimited revisions, SVG)</li>
+                            <li>7-page Business Plan + SEO + Competitor Analysis</li>
+                            <li>3 Social Platforms (7 posts + 30-day calendar)</li>
+                            <li>3-page Website + E-commerce</li>
+                            <li>Premium WhatsApp Automation (2 flows, analytics)</li>
+                            <li>1-Hour Consultation</li>
+                        </ul>
+                        <button>Get Started</button>
+                    </div>
+                </div>
+
+                <!-- Plan Comparison Table -->
+                <div class="comparison-table" data-aos="fade-up" data-aos-delay="400">
+                    <h3>Compare Plans</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Lite</th>
+                                <th>Starter</th>
+                                <th>Pro</th>
+                                <th>Premium</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Logo Designs</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅✅</td>
+                                <td>✅✅✅</td>
+                            </tr>
+                            <tr>
+                                <td>Business Plan</td>
+                                <td>2 pages</td>
+                                <td>3 pages</td>
+                                <td>5 pages + SEO</td>
+                                <td>7 pages + SEO + Competitor</td>
+                            </tr>
+                            <tr>
+                                <td>Social Posts</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>5</td>
+                                <td>7 + calendar</td>
+                            </tr>
+                            <tr>
+                                <td>Website</td>
+                                <td>Mockup</td>
+                                <td>Mockup</td>
+                                <td>1-page</td>
+                                <td>3-page + ecommerce</td>
+                            </tr>
+                            <tr>
+                                <td>WhatsApp Automation</td>
+                                <td>❌</td>
+                                <td>✅ Basic</td>
+                                <td>✅ Advanced</td>
+                                <td>✅ Premium</td>
+                            </tr>
+                            <tr>
+                                <td>AI Cheat Sheet</td>
+                                <td>3 tools</td>
+                                <td>5 tools</td>
+                                <td>Tailored</td>
+                                <td>Advanced</td>
+                            </tr>
+                            <tr>
+                                <td>Consultation</td>
+                                <td>❌</td>
+                                <td>❌</td>
+                                <td>❌</td>
+                                <td>✅ 1 hour</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- QUESTIONNAIRE FORM -->
+        <form name="questionnaire" id="questionnaire" method="POST" data-netlify="true" class="questionnaire-form">
+            <h2 style="text-align:center; margin-bottom:1rem;">📋 Launch Questionnaire</h2>
+            <input type="text" name="businessName" placeholder="Business Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <select name="industry" required>
+    <option value="">Select Industry</option>
+    <option>Gadget</option>
+    <option>Food</option>
+    <option>Services</option>
+    <option>Other</option>
+  </select>
+            <input type="text" name="targetAudience" placeholder="Target Audience">
+            <input type="text" name="stylePreference" placeholder="Style Preference (e.g., Modern, Bold)">
+            <textarea name="logoPreferences" placeholder="Logo Preferences (colors, icon, etc.)"></textarea>
+            <textarea name="businessGoals" placeholder="What are your business goals?"></textarea>
+            <label><strong>Social Platforms:</strong></label><br>
+            <label><input type="checkbox" name="social[]" value="Instagram"> Instagram</label>
+            <label><input type="checkbox" name="social[]" value="TikTok"> TikTok</label>
+            <label><input type="checkbox" name="social[]" value="X"> X</label>
+            <select name="websiteNeed">
+    <option value="">Do you need a website?</option>
+    <option>1-Page</option>
+    <option>3-Page</option>
+    <option>No Website</option>
+  </select>
+            <textarea name="whatsappAutomation" placeholder="What do you want WhatsApp automation to do?"></textarea>
+            <textarea name="notes" placeholder="Additional Notes"></textarea>
+            <button type="submit">Submit</button>
+        </form>
+
+        <!-- AUDIT SECTION (RENAMED) -->
+        <section class="quiz-container" id="business-check">
+            <h2>📊 How Launch-Ready Is Your Business?</h2>
+            <p style="text-align:center; margin-bottom:2rem;">Take our quick AI-powered audit to find gaps in your current setup.</p>
+        </section>
+
+        <!-- CTA BUTTON TO TRIGGER LEAD FORM -->
+        <div style="text-align: center; padding: 2rem;">
+            <button onclick="showLeadPopup()" class="cta-trigger" style="padding: 1rem 2rem; font-size: 1.1rem; border: none; border-radius: 6px; color: white; font-weight: bold; cursor: pointer;">Get Free AI Tools Checklist</button>
+        </div>
+
+
+        <!-- LEAD MAGNET POPUP -->
+        <form action="https://gmail.us17.list-manage.com/subscribe/post?u=YOUR_USER_ID&amp;id=YOUR_LIST_ID" method="post" target="_blank" class="lead-popup" id="leadPopup">
+            <span class="close-btn" onclick="closeLeadPopup()">&times;</span>
+            <h3>🎁 Free AI Tools Checklist!</h3>
+            <p>Enter your email to get our curated list of essential AI tools for small business.</p>
+            <input type="email" name="EMAIL" placeholder="you@example.com" required>
+            <button type="submit">Send My Checklist</button>
+            <div id="successMessage">✅ Thanks! Check your inbox.</div>
+        </form>
+
+
+        <section style="padding: 4rem 2rem; text-align: center;">
+            <h2>Client Testimonials</h2>
+            <div class="carousel" style="margin-top: 2rem;">
+                <div class="testimonial">
+                    <p>“SmartBiz AI transformed our online presence. The Launch Kit was spot on!” – Amanda, CEO of TrendyTech</p>
+                </div>
+                <div class="testimonial">
+                    <p>“I had my full plan and branding in 3 days. Loved the fast and clear delivery.” – Chinedu, GadgetHub</p>
+                </div>
+                <div class="testimonial">
+                    <p>“The AI audit gave me more insight than a month of coaching.” – Bukola, MiniBakes NG</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ SECTION -->
+
+        <!-- FAQ SECTION -->
+        <section class="faq-section" id="faq">
+            <h2>❓ Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>How fast can I launch with LaunchKit AI?</h3>
+                    <i class="fas fa-chevron-down faq-toggle-icon"></i>
+                </div>
+                <div class="faq-answer">You’ll receive your deliverables in 48 hours (2 business days) for most plans.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>What platforms do you support for websites?</h3>
+                    <i class="fas fa-chevron-down faq-toggle-icon"></i>
+                </div>
+                <div class="faq-answer">We build on Canva, Wix, Squarespace, and can export basic HTML when needed.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Do I need to know tech or AI to use this?</h3>
+                    <i class="fas fa-chevron-down faq-toggle-icon"></i>
+                </div>
+                <div class="faq-answer">No! Everything is beginner-friendly and designed for non-tech solopreneurs and students.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>How is delivery done?</h3>
+                    <i class="fas fa-chevron-down faq-toggle-icon"></i>
+                </div>
+                <div class="faq-answer">We send your assets via email and WhatsApp. You can always request changes as stated in your plan.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>What if I want extra services?</h3>
+                    <i class="fas fa-chevron-down faq-toggle-icon"></i>
+                </div>
+                <div class="faq-answer">You can always request add-ons like extra pages, e-commerce features, or ad management. We’ll guide you on cost and timeline.</div>
+            </div>
+        </section>
+
+
+    </main>
+
+    <div class="back-to-top" onclick="scrollToTop()">↑</div>
+    <script src="script.js"></script>
+    <script>
+        window.addEventListener("load", function() {
+            const preloader = document.getElementById("preloader");
+            setTimeout(() => {
+                preloader.classList.add("hidden");
+            }, 1000);
+        });
+    </script>
+
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {},
+            Tawk_LoadStart = new Date();
+        (function() {
+            var s1 = document.createElement("script"),
+                s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/64cde03ccc26a871b02f5e6d/1h6l9vpgj';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+
+
+    <script>
+        window.addEventListener("load", function() {
+            const preloader = document.getElementById("preloader");
+            setTimeout(() => {
+                preloader.classList.add("hidden");
+            }, 1000);
+        });
+
+        const quizForm = document.getElementById("auditQuiz");
+        const quizResult = document.getElementById("quiz-result");
+        const progressBar = document.getElementById("progress-bar");
+
+        const totalQuestions = 4;
+        quizForm.addEventListener("change", () => {
+            const answered = [...quizForm.querySelectorAll("input[type='radio']:checked")].length;
+            const progress = (answered / totalQuestions) * 100;
+            progressBar.style.width = `${progress}%`;
+        });
+
+        quizForm.addEventListener("submit", function(e) {
+            e.preventDefault();
+            const values = Array.from(new FormData(this).values());
+            const score = values.map(Number).reduce((a, b) => a + b, 0);
+            let message = '';
+            if (score >= 7) {
+                message = `🎉 Score: ${score}/8 - You're on the right track! Let’s optimize.`;
+            } else if (score >= 4) {
+                message = `🚧 Score: ${score}/8 - Good start, but there’s room to grow.`;
+            } else {
+                message = `⚠️ Score: ${score}/8 - Your business needs serious optimization.`;
+            }
+            quizResult.textContent = message;
+            quizResult.classList.add("show");
+        });
+    </script>
+    <script>
+        window.addEventListener("load", function() {
+            const preloader = document.getElementById("preloader");
+            setTimeout(() => {
+                preloader.classList.add("hidden");
+                setTimeout(showLeadPopup, 5000); // Auto show popup after 5s
+            }, 1000);
+        });
+
+        function showLeadPopup() {
+            document.getElementById("leadPopup").style.display = "block";
+        }
+
+        function closeLeadPopup() {
+            document.getElementById("leadPopup").style.display = "none";
+        }
+    </script>
+
+
+</body>
+
+</html>
