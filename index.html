@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="SmartBiz AI | AI-Powered Business Growth for Modern Entrepreneurs">
-    <meta property="og:title" content="SmartBiz AI">
+    <meta name="description" content="LaunchKit AI | AI-Powered Business Growth for Modern Entrepreneurs">
+    <meta property="og:title" content="LaunchKit AI">
     <meta property="og:description" content="AI-powered branding and growth tools for small businesses">
     <meta property="og:image" content="logo.png">
     <meta name="twitter:card" content="summary_large_image">
@@ -13,14 +13,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"> -->
-
 </head>
 
 <body>
@@ -286,6 +283,15 @@
             color: white;
             cursor: pointer;
         }
+        
+        .lead-popup {
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+        
+        .lead-popup.hide {
+            opacity: 0;
+            transform: translateY(20px);
+        }
     </style>
 
     <div id="preloader">
@@ -309,9 +315,7 @@
             <div class="glass-card">
                 <img class="rocket-btn" src="assets/img/rocket.png" alt="Rocket Icon">
             </div>
-            <!-- <div class="hero-illustration">
-    <img src="https://illustrations.popsy.co/gray/rocket.svg" alt="AI Startup Illustration">
-  </div> -->
+
         </section>
 
         <section id="services" style="padding: 4rem 2rem; background: var(--charcoal);">
@@ -699,84 +703,10 @@
 
     <div class="back-to-top" onclick="scrollToTop()">↑</div>
     <script src="script.js"></script>
-    <script>
-        window.addEventListener("load", function() {
-            const preloader = document.getElementById("preloader");
-            setTimeout(() => {
-                preloader.classList.add("hidden");
-            }, 1000);
-        });
-    </script>
-
-    <script type="text/javascript">
-        var Tawk_API = Tawk_API || {},
-            Tawk_LoadStart = new Date();
-        (function() {
-            var s1 = document.createElement("script"),
-                s0 = document.getElementsByTagName("script")[0];
-            s1.async = true;
-            s1.src = 'https://embed.tawk.to/64cde03ccc26a871b02f5e6d/1h6l9vpgj';
-            s1.charset = 'UTF-8';
-            s1.setAttribute('crossorigin', '*');
-            s0.parentNode.insertBefore(s1, s0);
-        })();
-    </script>
-
-
-    <script>
-        window.addEventListener("load", function() {
-            const preloader = document.getElementById("preloader");
-            setTimeout(() => {
-                preloader.classList.add("hidden");
-            }, 1000);
-        });
-
-        const quizForm = document.getElementById("auditQuiz");
-        const quizResult = document.getElementById("quiz-result");
-        const progressBar = document.getElementById("progress-bar");
-
-        const totalQuestions = 4;
-        quizForm.addEventListener("change", () => {
-            const answered = [...quizForm.querySelectorAll("input[type='radio']:checked")].length;
-            const progress = (answered / totalQuestions) * 100;
-            progressBar.style.width = `${progress}%`;
-        });
-
-        quizForm.addEventListener("submit", function(e) {
-            e.preventDefault();
-            const values = Array.from(new FormData(this).values());
-            const score = values.map(Number).reduce((a, b) => a + b, 0);
-            let message = '';
-            if (score >= 7) {
-                message = `🎉 Score: ${score}/8 - You're on the right track! Let’s optimize.`;
-            } else if (score >= 4) {
-                message = `🚧 Score: ${score}/8 - Good start, but there’s room to grow.`;
-            } else {
-                message = `⚠️ Score: ${score}/8 - Your business needs serious optimization.`;
-            }
-            quizResult.textContent = message;
-            quizResult.classList.add("show");
-        });
-    </script>
-    <script>
-        window.addEventListener("load", function() {
-            const preloader = document.getElementById("preloader");
-            setTimeout(() => {
-                preloader.classList.add("hidden");
-                setTimeout(showLeadPopup, 5000); // Auto show popup after 5s
-            }, 1000);
-        });
-
-        function showLeadPopup() {
-            document.getElementById("leadPopup").style.display = "block";
-        }
-
-        function closeLeadPopup() {
-            document.getElementById("leadPopup").style.display = "none";
-        }
-    </script>
-
-
+    <script src="animation.js"></script>
+    <script src="main.js"></script>
 </body>
+
+</html>
 
 </html>
