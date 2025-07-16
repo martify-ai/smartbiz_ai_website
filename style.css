@@ -404,6 +404,11 @@ nav a.active::after {
     color: #000;
 }
 
+.badge.pro {
+    background: red;
+    color: white;
+}
+
 .quiz-container {
     max-width: 600px;
     margin: 4rem auto;
