@@ -296,6 +296,114 @@ nav a.active::after {
     background-color: #003f85;
 }
 
+.growth-section {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.growth-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.growth-section .subtext {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    opacity: 0.85;
+}
+
+.toggle-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 1rem 0;
+    font-weight: 600;
+}
+
+.pricing-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.pricing-box {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 1100px;
+}
+
+.pricing-card {
+    background: var(--dark);
+    border: 1px solid #2d2d45;
+    border-radius: 12px;
+    padding: 2rem;
+    flex: 1;
+    min-width: 280px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    position: relative;
+}
+
+.pricing-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+}
+
+.pricing-card h4 {
+    font-size: 1.2rem;
+    color: var(--accent);
+}
+
+.price {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+
+.pricing-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+    font-size: 0.95rem;
+    text-align: left;
+    line-height: 1.6;
+}
+
+.cta-mini {
+    display: inline-block;
+    background: var(--accent);
+    color: #000;
+    font-weight: 600;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    text-decoration: none;
+    margin-top: 1rem;
+}
+
+.badge {
+    position: absolute;
+    top: -12px;
+    left: 16px;
+    background: #5bb1ff;
+    color: #000;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.badge.best {
+    background: gold;
+    color: #000;
+}
+
 .quiz-container {
     max-width: 600px;
     margin: 4rem auto;

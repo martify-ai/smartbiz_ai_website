@@ -38,6 +38,17 @@ if (testimonials.length > 0) {
     }, 4000);
 }
 
+document.getElementById('togglePricing').addEventListener('change', function() {
+    const monthly = document.getElementById('monthly');
+    const annual = document.getElementById('annual');
+    if (this.checked) {
+        monthly.style.display = 'none';
+        annual.style.display = 'block';
+    } else {
+        monthly.style.display = 'block';
+        annual.style.display = 'none';
+    }
+});
 
 // FAQS
 const faqItems = document.querySelectorAll('.faq-item');
