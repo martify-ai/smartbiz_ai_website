@@ -306,10 +306,6 @@ nav a.active::after {
     animation: fadeIn 1s ease forwards;
 }
 
-.quiz-question {
-    display: none;
-}
-
 .quiz-question.active {
     display: block;
     animation: fadeIn 0.5s ease-in-out;
