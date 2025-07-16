@@ -371,6 +371,15 @@ nav a.active::after {
     cursor: pointer;
 }
 
+.plan-box {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.plan-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
 .comparison-table {
     margin-top: 3rem;
     overflow-x: auto;
@@ -424,6 +433,12 @@ nav a.active::after {
 @media (max-width: 768px) {
     .comparison-table table {
         font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .desktop-only {
+        display: none;
     }
 }
 
