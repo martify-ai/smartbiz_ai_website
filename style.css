@@ -72,7 +72,7 @@ header {
 
 @media (max-width: 768px) {
     header {
-        padding: 0 2rem;
+        padding: 0px 2rem;
     }
 }
 
@@ -85,6 +85,7 @@ header {
 @media (max-width: 768px) {
     .logo img {
         width: 100px;
+        height: auto;
     }
 }
 
@@ -99,10 +100,6 @@ nav a {
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s;
-}
-
-body.light-mode nav a {
-    color: #111827;
 }
 
 nav {
