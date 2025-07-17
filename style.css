@@ -30,6 +30,10 @@
     transition: opacity 0.6s ease;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 #preloader.hidden {
     opacity: 0;
     pointer-events: none;
@@ -116,10 +120,6 @@ nav a {
     position: relative;
 }
 
-nav a.active {
-    color: var(--accent);
-}
-
 nav a.active::after {
     content: "";
     position: absolute;
@@ -128,6 +128,21 @@ nav a.active::after {
     width: 100%;
     height: 2px;
     background: var(--accent);
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 50%;
 }
 
 .menu-toggle {
@@ -342,7 +357,7 @@ nav a.active::after {
     border: 1px solid #2d2d45;
     border-radius: 12px;
     padding: 2rem;
-    flex: 1;
+    margin: 1.89rem 0;
     min-width: 280px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
@@ -390,7 +405,7 @@ nav a.active::after {
     position: absolute;
     top: -12px;
     left: 16px;
-    background: #5bb1ff;
+    background: #15c733;
     color: #000;
     font-size: 0.75rem;
     font-weight: 700;
@@ -399,9 +414,31 @@ nav a.active::after {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.badge.best {
+
+/* .badge.best {
     background: gold;
     color: #000;
+} */
+
+.pricing-card .badge.best {
+    background: gold;
+    color: black;
+    font-size: 0.8rem;
+}
+
+.pricing-card:nth-child(2) {
+    border: 2px solid green;
+    transform: scale(1.03);
+}
+
+.pricing-card:nth-child(3) {
+    border: 2px solid gold;
+    transform: scale(1.03);
+}
+
+.pricing-card:nth-child(4) {
+    border: 2px solid red;
+    transform: scale(1.03);
 }
 
 .badge.pro {
